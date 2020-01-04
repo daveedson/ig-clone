@@ -88,7 +88,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
 
     }
-    public void LayoutTapped(View view){
+    public void LayoutTapped(View view){ //to hide keyboard
 
 
         try {
