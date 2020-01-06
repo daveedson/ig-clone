@@ -50,6 +50,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         if (ParseUser.getCurrentUser() != null) { //TOKEN SESSION TO LOG OUT USER AFTER SIGN UP
             ParseUser.getCurrentUser().logOut();
+
         }
 
 
@@ -61,9 +62,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         switch (view.getId()) {
             case R.id.btnLGlogin:
-                if (edtLGemail.getText().toString().equals("") || edtLGpassword.getText().toString().equals("")) {
+                if (edtLGemail.getText().toString().equals("")
+                        || edtLGpassword.getText().toString().equals("")) {
 
                     Toast.makeText(Login.this, "Email and Password Fields Required !", Toast.LENGTH_SHORT).show();
+
                 } else {
 
                     ParseUser.logInInBackground(edtLGemail.getText().toString(),
@@ -74,7 +77,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                                     if (user != null && e == null) {
                                         Toast.makeText(Login.this, user.getUsername() + " is logged in successfully", Toast.LENGTH_LONG).show();
-
+                                        TransitionToSocialMediaActivty();
                                     }
                                 }
                             });
@@ -88,7 +91,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
 
     }
-    public void LayoutTapped(View view){ //to hide keyboard
+    public void LayoutTapped(View view){ //to hide keyboard..
 
 
         try {
@@ -99,6 +102,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
             e.printStackTrace();
         }
+    }
+
+    public void TransitionToSocialMediaActivty(){
+
+        Intent intent = new Intent(Login.this,SocialMedia.class);
+        startActivity(intent);
     }
 
 

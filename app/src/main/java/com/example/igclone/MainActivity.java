@@ -57,8 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtLogin.setOnClickListener(this);
         //btnSPlogin.setOnClickListener(this);
 
-        if (ParseUser.getCurrentUser() != null) { //TOKEN SESSION TO LOG OUT USER AFTER SIGN UP
-            ParseUser.getCurrentUser().logOut();
+        if (ParseUser.getCurrentUser() != null) { //TOKEN SESSION
+           // ParseUser.getCurrentUser().logOut();
+            TransitionToSocialMediaActivty();
         }
 
 
@@ -75,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     Toast.makeText(MainActivity.this, "Email,Username and Password is required !", Toast.LENGTH_SHORT).show();
 
+
+
                 } else {
                     final ParseUser appuser = new ParseUser();
                     appuser.setEmail(edtSPemail.getText().toString());
@@ -88,8 +91,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     appuser.signUpInBackground(new SignUpCallback() {
                         @Override
                         public void done(ParseException e) {
-                            if (e == null) {
+                            if (e == null)
+                            {
                                 Toast.makeText(MainActivity.this, appuser.getUsername() + " is signed up", Toast.LENGTH_LONG).show();
+
+                                TransitionToSocialMediaActivty();
+
                             } else {
                                 Toast.makeText(MainActivity.this, "An error Occured " + e.getMessage(), Toast.LENGTH_LONG).show();
                             }
@@ -118,5 +125,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
+    }
+
+    public void TransitionToSocialMediaActivty(){
+
+        Intent intent = new Intent(MainActivity.this,SocialMedia.class);
+        startActivity(intent);
     }
 }
