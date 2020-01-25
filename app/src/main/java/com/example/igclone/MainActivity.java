@@ -1,7 +1,5 @@
 package com.example.igclone;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -109,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Intent intent = new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
+                finish();
                 break;
         }
 
@@ -131,5 +131,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent intent = new Intent(MainActivity.this,SocialMedia.class);
         startActivity(intent);
+        finish();
     }
 }

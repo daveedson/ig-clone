@@ -1,7 +1,5 @@
 package com.example.igclone;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -11,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -86,6 +86,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             case R.id.txtsignUp:
                 Intent intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
+                finish();
                 break;
         }
 
@@ -108,6 +109,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         Intent intent = new Intent(Login.this,SocialMedia.class);
         startActivity(intent);
+        finish();
     }
 
 
